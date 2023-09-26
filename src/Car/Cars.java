@@ -1,0 +1,195 @@
+package Car;
+
+import java.util.Scanner;
+
+public class Cars {
+    // FILDS
+    private String marca;
+    private int capacitateMotor;
+    private double pret;
+    private String model;
+    private int anulFabricatiei;
+    private String culoare;
+
+    // CONSTRUCTOR Default
+    public Cars() {
+
+    }
+
+    // CONSTRUCTOR Parameterized
+    public Cars(String marca, int capacitateMotor, double pret, String model, int anulFabricatiei, String culoare) {
+        this.marca = marca;
+        this.capacitateMotor = capacitateMotor;
+        this.pret = pret;
+        this.model = model;
+        this.anulFabricatiei = anulFabricatiei;
+        this.culoare = culoare;
+    }
+
+    // GET and SET
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public int getCapacitateMotor() {
+        return capacitateMotor;
+    }
+
+    public void setCapacitateMotor(int capacitateMotor) {
+        this.capacitateMotor = capacitateMotor;
+    }
+
+    public double getPret() {
+        return pret;
+    }
+
+    public void setPret(double pret) {
+        this.pret = pret;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getAnulFabricatiei() {
+        return anulFabricatiei;
+    }
+
+    public void setAnulFabricatiei(int anulFabricatiei) {
+        this.anulFabricatiei = anulFabricatiei;
+    }
+
+    public String getCuloare() {
+        return culoare;
+    }
+
+    public void setCuloare(String culoare) {
+        this.culoare = culoare;
+    }
+
+    // METHODS
+    public void schimbaCuloarea(String culoareCititaTastatura){
+        culoare = culoareCititaTastatura;
+    }
+
+    public static class Main {
+        public static void main(String[] args) {
+            // Scanner for reading from keyboard
+            Scanner scannerNumere = new Scanner(System.in);
+            Scanner scannerText = new Scanner(System.in);
+
+            // ARRAY with elements tip of Car and elements from keyboard
+            System.out.print("Introduceti numarul de masini care vreti sa il introduceti in parc: ");
+            int dimensiuneArray = scannerNumere.nextInt();
+            Cars[] carArray = new Cars[dimensiuneArray];
+
+            // Enter the elements of the array
+            for (int i = 0; i < carArray.length; i++) {
+                System.out.println("Introduceti masina numarul " + (i + 1) + ": ");
+                System.out.print((i+1)+".Marca: ");
+                String marcaIntrodusa = scannerText.nextLine();
+                System.out.print("Capacitate Motor: ");
+                int capacitateMotorIntrodusa = scannerNumere.nextInt();
+                System.out.print("Pret: ");
+                double pretIntrodus = scannerNumere.nextDouble();
+                System.out.print("Model: ");
+                String modelIntrodus = scannerText.nextLine();
+                System.out.print("Anul Fabricatiei: ");
+                int anFabrciatieIntrodusa = scannerNumere.nextInt();
+                System.out.print("Culoare: ");
+                String culoareIntrodusa = scannerText.nextLine();
+                Cars car = new Cars(marcaIntrodusa, capacitateMotorIntrodusa, pretIntrodus, modelIntrodus, anFabrciatieIntrodusa, culoareIntrodusa);
+                carArray[i] = car;
+            }
+
+            int optiuneAleasa;
+            do {
+                afisareMeniu();
+                System.out.print("Alegeti o optiune din Meniu: ");
+                optiuneAleasa = scannerNumere.nextInt();
+                switch (optiuneAleasa) {
+                    case 1:
+                        afiseazaCar(carArray);
+                        break;
+                    case 2:
+                        System.out.print("Alegeti numarul masini care il modificati: ");
+                        int pozitie = scannerNumere.nextInt();
+                        schimbareCar(carArray,(pozitie-1));
+                        break;
+                    case 3:
+                        schimbaCuloare(carArray);
+                        break;
+                    case 4:
+                        System.out.println("La reverdere! Va mai asteptam pe la noi!");
+                        break;
+                    default:
+                        System.out.println("Optiune invalida! Alege din nou!");
+                }
+            } while (optiuneAleasa != 4);
+
+        }
+
+        static void afisareMeniu() {
+            System.out.println("----- MENIU -----");
+            System.out.println("1.Afisare PARC AUTO");
+            System.out.println("2.Schimbare AUTO");
+            System.out.println("3.Modificare culoare PARC AUTO");
+            System.out.println("4.Exit");
+        }
+
+        static void afiseazaCar(Cars[] array) {
+            System.out.println("--- Lista cu Parcul AUTO ---");
+            for (int i = 0; i < array.length; i++) {
+                Cars carAfisare = array[i];
+                System.out.println((i+1)+".Marca:" + carAfisare.getMarca() + " Capacitate Motor:" + carAfisare.getCapacitateMotor() + " Pret:" + carAfisare.getPret() + " E" + " Model:" + carAfisare.getModel() + " An Fabricatie:" + carAfisare.getAnulFabricatiei() + " Culoare:" + carAfisare.getCuloare());
+            }
+        }
+
+        static void schimbareCar(Cars[] array, int pozitieMasinaModificata) {
+            Scanner inputNumere = new Scanner(System.in);
+            Scanner inputText = new Scanner(System.in);
+            if (pozitieMasinaModificata < array.length){
+                for (int i = pozitieMasinaModificata; i <= pozitieMasinaModificata; i++) {
+                    System.out.println("Modificare masina numarul " + (i + 1) + ": ");
+                    System.out.print((i+1)+".Marca: ");
+                    String marcaIntrodusa = inputText.nextLine();
+                    System.out.print("Capacitate Motor: ");
+                    int capacitateMotorIntrodusa = inputNumere.nextInt();
+                    System.out.print("Pret: ");
+                    double pretIntrodus = inputNumere.nextDouble();
+                    System.out.print("Model: ");
+                    String modelIntrodus = inputText.nextLine();
+                    System.out.print("Anul Fabricatiei: ");
+                    int anFabrciatieIntrodusa = inputNumere.nextInt();
+                    System.out.print("Culoare: ");
+                    String culoareIntrodusa = inputText.nextLine();
+                    Cars car = new Cars(marcaIntrodusa, capacitateMotorIntrodusa, pretIntrodus, modelIntrodus, anFabrciatieIntrodusa, culoareIntrodusa);
+                    array[pozitieMasinaModificata] = car;
+                }
+            }else {
+                System.out.println("Numarul ales nu exista in PARCUL NOSTRU !!!");
+            }
+        }
+
+        static void schimbaCuloare(Cars[] array){
+            Scanner inputText = new Scanner(System.in);
+            for (int i = 0; i < array.length; i++) {
+                System.out.print((i+1) + ".Marca:" + array[i].getMarca() + " va avea noua culoare: ");
+                String culoare = inputText.nextLine();
+                array[i].schimbaCuloarea(culoare);
+            }
+        }
+    }
+}
+
+
+
+
