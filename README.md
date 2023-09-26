@@ -3,11 +3,11 @@
 Can be found in the **Car** folder
 
 📝\
-Create the Cars class.\
-Private fields and getters and setters: brand, engine capacity, price, model, year of manufacture, color.\
-Constructor default and parameterized constructor.\
-Methods: void changeColor(String colorReadKeyboard);\
-void displayCar();\
+Create the Cars class. Private Fields and Getters, Setters: brand, engine capacity, price, model, year of manufacture, color. Make a constructor default and parameterized constructor.\
+Methods: 
+1. [ ] void changeColor(String colorReadKeyboard);\
+2. [ ] void displayCar();
+
 In the main method: Class Main, create an array with elements of the Car type.\
 Example: Car[] carArray = new Car[size];
 - Populate this array with 3 Car type elements, the properties of each element in the array read from the keyboard.
