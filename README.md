@@ -39,3 +39,26 @@ Example: `Product[] productArray = new Product[size];
 - To update the element from the last position in the array with the new element with modified values.
 
 # Exercise 3 - working progress [loading]
+
+📚\
+Can be found in the **Mouse** folder (src->Mouse).
+
+📝\
+Create class Mouse.
+Private fields + getters and setters: name, age, weight, color, length, width. Make a constructor default and parameterized constructor.\
+Methods: 
+1. [ ] void changeName(String name);
+2. [ ] void eat(int amount): 
+   - quantity 1 => +0.1kg will gain weight. 
+   - quantity 2 => +0.2kg will gain weight. 
+   - quantity 3 => +0.3kg will gain weight.
+   - If the amount is greater (>) than 3, then the message "The mouse xName cannot eat more than 3 pieces at one meal and its weight will remain the same" will be displayed
+
+In the method main -> Class Main to create an array of Mouse.\
+Example: `Product[] mouseArray = new Mouse[size];
+mouseArray[index].eat();`
+
+* Populate this array with 4 elements of the Mouse type, the properties of each element in the array read from the keyboard.
+* To display elements of the mouse array. A method for this will be built in the Main class.
+* Create a method in the class where the array is located that checks if there is a mouse in the array with a name read from the keyboard, and if there is the element at that position, replace it with another Mouse type element with other properties.
+* Display the array again with the modified elements using the method created above.
