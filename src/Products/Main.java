@@ -32,9 +32,7 @@ public class Main {
                     System.out.println("Pretul total al produselor din magazin este: " + pret + " RON");
                     break;
                 case 3:
-                    System.out.print("Introduceti pretul(>) dupa care sortati: ");
-                    double pretMare = scannerNumere.nextDouble();
-                    pretTastaturaMare(productArray,pretMare);
+                    pretTastaturaMare(productArray);
                     break;
                 case 4:
                     schimbareUltimulProdus(productArray);
@@ -106,7 +104,11 @@ public class Main {
         return pretTotal;
     }
 
-    static void pretTastaturaMare(Product[] array, double pretulIntrodus) {
+    static void pretTastaturaMare(Product[] array) {
+        Scanner scannerNumere = new Scanner(System.in);
+        System.out.print("Introduceti pretul(>) dupa care sortati: ");
+        double pretulIntrodus = scannerNumere.nextDouble();
+        System.out.println("Produsele cu pret mai de " + pretulIntrodus + " RON, sunt: ");
         for (int i = 0; i < array.length; i++) {
             if (pretulIntrodus < array[i].getPret()) {
                 System.out.println("** Produsul ** " + (i + 1) + " :");
