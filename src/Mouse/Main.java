@@ -42,9 +42,7 @@ public class Main {
                     afisareMouse(mouseArray);
                     break;
                 case 2:
-                    System.out.print("Introduceti numele pe care il cautati: ");
-                    String numeIntrodus = scannerText.nextLine();
-                    gasireMouseNume(mouseArray, numeIntrodus);
+                    gasireMouseNume(mouseArray);
                     break;
                 case 3:
                     System.out.print("Numarul mouse care va manca: ");
@@ -86,9 +84,12 @@ public class Main {
         System.out.println("5.Exit");
     }
 
-    static void gasireMouseNume(Mouse[] array, String numeIntrodusTastatura) {
+    static void gasireMouseNume(Mouse[] array) {
         Scanner scannerNumere = new Scanner(System.in);
         Scanner scannerText = new Scanner(System.in);
+        System.out.print("Introduceti numele pe care il cautati: ");
+        String numeIntrodusTastatura = scannerText.nextLine();
+
         // Variable String for save the name; to give a proper display message not in the FOR instruction;
         String numeSalvare = "";
         for (int i = 0; i < array.length; i++) {

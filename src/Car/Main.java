@@ -42,9 +42,7 @@ public class Main {
                     afiseazaCar(carArray);
                     break;
                 case 2:
-                    System.out.print("Alegeti numarul masini care il modificati: ");
-                    int pozitie = scannerNumere.nextInt();
-                    schimbareCar(carArray,(pozitie-1));
+                    schimbareCar(carArray);
                     break;
                 case 3:
                     schimbaCuloare(carArray);
@@ -75,9 +73,11 @@ public class Main {
         }
     }
 
-    static void schimbareCar(Cars[] array, int pozitieMasinaModificata) {
+    static void schimbareCar(Cars[] array) {
         Scanner inputNumere = new Scanner(System.in);
         Scanner inputText = new Scanner(System.in);
+        System.out.print("Alegeti numarul masini care il modificati: ");
+        int pozitieMasinaModificata = inputNumere.nextInt() - 1 ;
         if (pozitieMasinaModificata < array.length){
             for (int i = pozitieMasinaModificata; i <= pozitieMasinaModificata; i++) {
                 System.out.println("Modificare masina numarul " + (i + 1) + ": ");
